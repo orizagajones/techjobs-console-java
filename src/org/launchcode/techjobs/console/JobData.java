@@ -84,16 +84,16 @@ public class JobData {
         return jobs;
     }
 
-    public static ArrayList<HashMap<String, String>> findByValue(String eachKey, String searchTerm) {
+    public static ArrayList<HashMap<String, String>> findByValue(String column, String searchTerm) {
 
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> record : allJobs) {
-            for (eachKey: record.keySet()) {
+            for (String eachKey: record.keySet()) {
 
-                if (eachKey.toLowerCase().equals(searchTerm.toLowerCase()));
+                if (eachKey.toLowerCase().contains(searchTerm.toLowerCase()));
                     jobs.add(record);
             }
 
