@@ -84,21 +84,28 @@ public class JobData {
         return jobs;
     }
 
-    public static ArrayList<HashMap<String, String>> findByValue(String column, String searchTerm) {
+    public static ArrayList<HashMap<String, String>> findByValue(String searchTerm) {
 
         loadData();
 
+        String valueInRecord;
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> record : allJobs) {
             for (String eachKey: record.keySet()) {
 
-                if (eachKey.toLowerCase().contains(searchTerm.toLowerCase()));
-                    jobs.add(record);
+                valueInRecord = record.get(eachKey);
+                if (valueInRecord.toLowerCase().contains(searchTerm.toLowerCase())) {
+                    System.out.println("added"+ valueInRecord);
+                    if (!jobs.contains(record)) {
+                        jobs.add(record);
+                    }
+                }
             }
 
         }
         return jobs;
+        //System.out.println("added"+ valueInRecord);
     }
 
     /**
