@@ -2,6 +2,8 @@ package org.launchcode.techjobs.console;
 
 import java.util.*;
 
+import static java.util.Collections.*;
+
 /**
  * Created by LaunchCode
  */
@@ -40,6 +42,7 @@ public class TechJobs {
                 } else {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
+                    sort(results);
 
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 

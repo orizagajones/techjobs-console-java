@@ -76,7 +76,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -97,8 +97,9 @@ public class JobData {
                 valueInRecord = record.get(eachKey);
                 if (valueInRecord.toLowerCase().contains(searchTerm.toLowerCase())) {
                     System.out.println("added"+ valueInRecord);
-                    if (!jobs.contains(record)) {
+                    if (!jobs.contains(record)) {  // <--- if you had break or continue below you wouldn't need this
                         jobs.add(record);
+                        //break; or continue;  <-- another way to do it is to break out of the inner loop
                     }
                 }
             }
